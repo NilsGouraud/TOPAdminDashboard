@@ -1,6 +1,6 @@
 /* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
+v2.0 | 20110126
+License: none (public domain)
 */
 
 html, body, div, span, applet, object, iframe,
@@ -16,35 +16,35 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup, 
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
-	display: block;
+    display: block;
 }
 body {
-	line-height: 1;
+    line-height: 1;
 }
 ol, ul {
-	list-style: none;
+    list-style: none;
 }
 blockquote, q {
-	quotes: none;
+    quotes: none;
 }
 blockquote:before, blockquote:after,
 q:before, q:after {
-	content: '';
-	content: none;
+    content: '';
+    content: none;
 }
 table {
-	border-collapse: collapse;
-	border-spacing: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
 }
 
 
@@ -55,6 +55,9 @@ table {
 
 
 
+:root{
+   --mainColor:rgb(0, 112, 210);
+}
 
 
 *{
@@ -81,7 +84,7 @@ a{
     font-size: 1.2;
 }
 .blueBG{
-    background-color: rgb(0, 112, 210);
+    background-color: var(--mainColor);
 }
 .whiteBG{
     background-color: white;
@@ -97,7 +100,7 @@ a{
 }
 .yellowBorderLeft{
     border-left: 10px solid goldenrod;
-    padding: 20px;
+    padding: 20px 20px 0 10px;
     grid-template-columns: 1fr 0.8fr;
     grid-template-rows: 4fr 1fr;
 }
@@ -114,6 +117,8 @@ a{
 .icons img{
     width: 1.5rem;
     height: auto;
+    border: 1px solid rgba(0, 0, 0, 0);
+    transition: 0.3s;
 }
 .roundBorder{
     border-radius: 10px;
@@ -130,8 +135,11 @@ a{
 }
 input{
     border-radius: 30px;
-    border: none;
+    border: 1px solid rgba(0, 0, 0, 0);
     padding: 5px 10px;
+}
+input[type="text"]{
+    width: 100%;
 }
 
 a{
@@ -156,12 +164,20 @@ img{
     align-items: end;
     padding-bottom: 10px;
 }
+.refactor{
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.349);
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    padding: 30px;
+}
 body{
     margin: 0;
     height: 100%;
 }
 main{
-    grid-template-columns: 1fr 3.7fr;
+    grid-template-columns: minmax(250px,0.5fr) 3.7fr;
     grid-template-rows: 1fr 5fr;
     height: 100vh;
 }
@@ -183,12 +199,95 @@ main{
 .dashboard>h1 img{
     width: 3rem;
 }
-.header{
+header{
     grid-area: 1/2/2/3;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 .greyBG{
     background-color: rgba(0, 0, 0, 0.053);
 }
+.searchbar{
+    display: flex;
+    align-items: center;
+}
+.notifications{
+    display: flex;
+    justify-content: center;
+    gap: 8%;
+    align-items: center;
+}
+.bell{
+    width: 1.2rem;
+}
+.portrait{
+    width: 2.5rem;
+    border-radius: 50%;
+}
+.actions{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10px 0;
+}
+.actions input{
+    padding: 0 20px;
+    height: 2rem;
+    transition: 0.3s;
+    
+}
+a{
+    transition: 0.3s;
+}
+
+a:hover,.actions input:hover{
+    color: black;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid var(--mainColor);
+}
+.icons img:active, a:active,.actions input:active{
+    background-color: var(--mainColor);
+    color: white;
+    transform: rotateX(30deg);
+    transition: 0.05s;   
+}
+
+ a:hover{
+    color: white;
+    cursor: pointer;
+    background-color: black;
+    border: none;
+    filter: invert();
+}
+.icons img:hover{
+    background-color: #ff8f2d;
+    filter: invert();
+    color: black;
+    border-radius: 20%;
+    cursor: pointer;
+}
+.icons img:active{
+    background-color: rgba(0, 0, 0, 0);
+    border: 1px solid;
+    box-shadow: 0 0 5px black;
+    border-radius: 35%;
+    filter: none;
+    color: white;
+    transform: rotateX(30deg);
+    transition: 0.05s;   
+}
+nav:nth-child() a:nth-child(1){
+    background-color: red;
+}
+a:active{
+    color: white;
+    transform: rotateX(+30deg);
+    transition: 0.3s;   
+    filter: none;
+
+}
+
 section{
     padding: 30px;
     grid-area: 2/2/3/3;
@@ -196,15 +295,23 @@ section{
     grid-template-rows: 1fr 1fr;
     gap:2%;
 }
+.profile{
+    display: flex;
+    justify-content: baseline;
+    align-items: center;
+    padding-left: 10px;
+}
 .projects{
     grid-area: 1/1/3/2;
     grid-template-columns: 1fr;
     grid-template-rows: 0.5fr 9fr;
     
+    
 }
 .projects>div{
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 5%;
+    overflow-y: auto;
 }
 
 
