@@ -119,6 +119,7 @@ a{
     height: auto;
     border: 1px solid rgba(0, 0, 0, 0);
     transition: 0.3s;
+
 }
 .roundBorder{
     border-radius: 10px;
@@ -219,6 +220,8 @@ header{
 }
 .bell{
     width: 1.2rem;
+    transition: 0.3s;
+    border: 1px solid rgba(0, 0, 0, 0);
 }
 .portrait{
     width: 2.5rem;
@@ -260,14 +263,14 @@ a:hover,.actions input:hover{
     border: none;
     filter: invert();
 }
-.icons img:hover{
+.icons img:hover,.bell:hover{
     background-color: #ff8f2d;
     filter: invert();
     color: black;
     border-radius: 20%;
     cursor: pointer;
 }
-.icons img:active{
+.icons img:active,.bell:active{
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid;
     box-shadow: 0 0 5px black;
