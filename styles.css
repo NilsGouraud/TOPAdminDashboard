@@ -247,7 +247,9 @@ a:hover,.actions input:hover{
     color: black;
     cursor: pointer;
     background-color: white;
+    letter-spacing: 0.1rem;
     border: 1px solid var(--mainColor);
+    box-shadow: 0 10px 20px rgba(0, 42, 78, 0.233);
 }
 .icons img:active, a:active,.actions input:active{
     background-color: var(--mainColor);
